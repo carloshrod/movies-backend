@@ -4,7 +4,7 @@ SET timezone = 'America/Bogota';
 
 CREATE TABLE movies(
     id UUID DEFAULT uuid_generate_v4(),
-    name VARCHAR(255) UNIQUE NOT NULL,
+    title VARCHAR(255) UNIQUE NOT NULL,
     language VARCHAR(255) NOT NULL,
     rating VARCHAR(255) NOT NULL,
     duration INT NOT NULL,
