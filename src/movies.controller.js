@@ -5,7 +5,7 @@ const { uploadImage, deleteImage } = require('./utils/cloudinary');
 const getAllMovies = async (req, res) => {
     try {
         const allMovies = await pool.query('SELECT * FROM movies ORDER BY release_date desc');
-        res.json(allMovies.rows)
+        res.json({ movies: allMovies.rows })
     } catch (error) {
         res.json({ msg: error.message });
     }
@@ -82,7 +82,7 @@ const getMovie = async (req, res) => {
     try {
         const { id } = req.params;
         const movie = await pool.query('SELECT * FROM movies WHERE id = $1', [id]);
-        res.json(movie.rows[0])
+        res.json({ movie: movie.rows[0] })
     } catch (error) {
         res.json({ msg: error.message });
     }
@@ -92,7 +92,7 @@ const getMoviesByTitle = async (req, res) => {
     try {
         const { title } = req.params;
         const foundMovies = await pool.query('SELECT * FROM movies WHERE UPPER(title) LIKE UPPER($1) ORDER BY release_date desc', [`%${title}%`]);
-        res.json(foundMovies.rows);
+        res.json({ foundMovies: foundMovies.rows });
     } catch (error) {
         res.json({ msg: error.message });
     }
