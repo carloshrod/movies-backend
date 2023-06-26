@@ -1,5 +1,5 @@
 # Movies App - Backend
-API developed with Node and used by the project [movies-frontend](https://github.com/carloshrod/movies-frontend).
+API developed with Node and Express, and used by the project [movies-frontend](https://github.com/carloshrod/movies-frontend).
 
 ## Technologies and libraries
 * Node
